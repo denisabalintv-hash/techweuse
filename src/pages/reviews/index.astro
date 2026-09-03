@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const reviews = [
+  {
+    href: '/reviews/kinguin-vs-green-man-gaming-vs-fanatical',
+    title: 'Kinguin vs Green Man Gaming vs Fanatical: Which Digital Game Key Site Is Actually Safe?',
+    description:
+      "We compare how each site sources keys, what happens if one doesn't work, and which is worth using for different kinds of purchases.",
+    category: 'Gaming',
+  },
+];
+
+const tagColors: Record<string, string> = {
+  Gaming: '#db2777',
+  Software: '#059669',
+};
+---
+<Layout
+  title="Reviews"
+  description="Hands-on reviews and comparisons of software, tools, and digital gaming platforms."
+>
+  <h1>Reviews</h1>
+  <p>
+    Every review here comes from actually using the product or platform,
+    not summarizing a spec sheet. See our <a href="/disclosure">disclosure</a>
+    for how we handle affiliate links.
+  </p>
+  <ul class="review-list">
+    {reviews.map((review) => (
+      <li>
+        <span class="tag" style={`color: ${tagColors[review.category]}; border-color: ${tagColors[review.category]}`}>
+          {review.category}
+        </span>
+        <a href={review.href}>{review.title}</a>
+        <p>{review.description}</p>
+      </li>
+    ))}
+  </ul>
+</Layout>
+
+<style>
+  .review-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
+  .review-list li {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid;
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .review-list a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  .review-list a:hover {
+    text-decoration: underline;
+  }
+  .review-list p {
+    margin: 0.5rem 0 0;
+    color: #444;
+  }
+</style>
