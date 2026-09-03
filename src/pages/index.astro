@@ -11,6 +11,7 @@ const latest = reviews.slice(0, 6);
   wide
 >
   <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
     <h1>Software and gaming, actually explained.</h1>
     <p class="lede">
       We dig into how software, subscriptions, and digital tools actually
@@ -19,6 +20,10 @@ const latest = reviews.slice(0, 6);
       verified reports everywhere else. We tell you which is which, not
       repackaged marketing copy.
     </p>
+    <div class="hero-cta">
+      <a class="btn btn-gaming" href="/reviews">Browse gaming reviews</a>
+      <a class="btn btn-software" href="/reviews">Browse software reviews</a>
+    </div>
   </section>
 
   <section class="latest">
@@ -34,9 +39,21 @@ const latest = reviews.slice(0, 6);
 
 <style>
   .hero {
+    position: relative;
     max-width: 40rem;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto 4rem;
     text-align: center;
+    padding-top: 1rem;
+  }
+  .hero-glow {
+    position: absolute;
+    inset: -4rem -2rem auto -2rem;
+    height: 20rem;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(190, 24, 104, 0.14), transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(4, 112, 79, 0.14), transparent 55%);
+    filter: blur(10px);
   }
   .hero h1 {
     font-size: 2.6rem;
@@ -45,7 +62,35 @@ const latest = reviews.slice(0, 6);
   .lede {
     font-size: 1.08rem;
     color: var(--color-text-muted);
-    margin: 0;
+    margin: 0 0 2rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 0.85rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.3rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-gaming {
+    background: var(--color-gaming);
+    color: #fff;
+  }
+  .btn-software {
+    background: #fff;
+    color: var(--color-software);
+    border-color: var(--color-software);
   }
   .latest-header {
     display: flex;
