@@ -6,8 +6,8 @@ interface Props {
 const { category, title } = Astro.props as Props;
 
 const gradients: Record<Props['category'], string> = {
-  Gaming: 'linear-gradient(135deg, #6d28d9, #db2777)',
-  Software: 'linear-gradient(135deg, #0891b2, #059669)',
+  Gaming: 'linear-gradient(135deg, #8f1257, #be1868)',
+  Software: 'linear-gradient(135deg, #045c40, #04704f)',
 };
 ---
 <div class="article-header" style={`background: ${gradients[category]}`}>
@@ -17,30 +17,32 @@ const gradients: Record<Props['category'], string> = {
 
 <style>
   .article-header {
-    border-radius: 12px;
-    padding: 2.5rem 1.5rem;
-    margin: 0 0 2rem;
+    border-radius: var(--radius);
+    padding: 2.75rem 1.75rem;
+    margin: 0 0 2.25rem;
     color: #fff;
   }
   .category-tag {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.18);
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
   }
   .article-header h1 {
+    font-family: var(--font-heading);
     margin: 0;
+    color: #fff;
     font-size: 1.6rem;
     line-height: 1.35;
   }
   @media (min-width: 600px) {
     .article-header h1 {
-      font-size: 1.9rem;
+      font-size: 2rem;
     }
   }
 </style>

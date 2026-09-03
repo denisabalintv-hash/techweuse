@@ -1,17 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import { reviews } from '../data/reviews';
+
+const latest = reviews.slice(0, 6);
 ---
 <Layout
   title="Home"
   description="Software, tools, and digital gaming - honest research, hands-on testing where we can get it, and no invented claims."
+  wide
 >
-  <h1>TechWeUse</h1>
-  <p>
-    We dig into how software, subscriptions, and digital tools actually
-    work before we recommend them — hands-on testing wherever we can
-    genuinely get it, thorough research from official sources and
-    verified user reports everywhere else. We tell you which is which,
-    not repackaged marketing copy.
-  </p>
-  <p>New articles are on their way. Check back soon.</p>
+  <section class="hero">
+    <h1>Software and gaming, actually explained.</h1>
+    <p class="lede">
+      We dig into how software, subscriptions, and digital tools actually
+      work before we recommend them — hands-on testing wherever we can
+      genuinely get it, thorough research from official sources and
+      verified reports everywhere else. We tell you which is which, not
+      repackaged marketing copy.
+    </p>
+  </section>
+
+  <section class="latest">
+    <div class="latest-header">
+      <h2>Latest reviews</h2>
+      <a class="see-all" href="/reviews">See all &rarr;</a>
+    </div>
+    <div class="grid">
+      {latest.map((review) => <ReviewCard review={review} />)}
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .hero {
+    max-width: 40rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1.1rem;
+  }
+  .lede {
+    font-size: 1.08rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .latest-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .latest-header h2 {
+    margin: 0;
+  }
+  .see-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-muted);
+  }
+  .see-all:hover {
+    color: var(--color-text);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 960px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
