@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleHeader from '../../components/ArticleHeader.astro';
+---
+<Layout
+  title="Best Screen Recording & Clip-Saving Software for Gamers"
+  description="The free, already-installed option most gamers should try first, plus when OBS or a dedicated clip app like Medal actually earns a spot on your PC."
+>
+  <ArticleHeader
+    category="Gaming"
+    title="Best Screen Recording & Clip-Saving Software for Gamers"
+  />
+
+  <p>
+    Something incredible happens in a match, you reach for a hotkey that
+    doesn't exist, and it's gone. The fix for that isn't a paid app — it's
+    almost certainly already sitting on your PC, doing nothing, because it
+    was never turned on.
+  </p>
+
+  <p>
+    <strong>Short answer:</strong> if you have an NVIDIA or AMD graphics
+    card, its own free software already does background clip-saving better
+    than most paid tools. Here's the actual order to try things in.
+  </p>
+
+  <h2>Start here: your GPU's own instant replay</h2>
+
+  <p>
+    Both NVIDIA (Instant Replay, inside the NVIDIA App / GeForce Experience)
+    and AMD (ReLive, inside AMD Software) include a background recording
+    mode that constantly buffers the last several minutes of gameplay in
+    memory. Hit a hotkey after something great happens, and it saves the
+    footage retroactively — you don't have to remember to start recording
+    before the moment happens. Because it runs on hardware-accelerated
+    encoding built into the GPU itself, the performance cost is minimal
+    compared to software-based recorders. If you have a dedicated NVIDIA or
+    AMD card, this is the option to try first, and it costs nothing beyond
+    software you likely already have installed for driver updates.
+  </p>
+
+  <h2>No dedicated GPU, or want a universal fallback?</h2>
+
+  <p>
+    Windows has its own built-in recorder: Xbox Game Bar (Win+G). It works
+    on any PC, needs zero setup, and also supports background clip-saving.
+    The tradeoffs are real, though — it's capped at 1080p and carries a
+    noticeably higher performance hit than hardware-accelerated GPU
+    recording. Fine as a no-install fallback; not the best choice if you
+    have a real alternative available.
+  </p>
+
+  <h2>Want full control, or planning to stream?</h2>
+
+  <p>
+    OBS Studio is the standard here — free, open-source, no feature
+    restrictions, and it can record or stream literally anything on your
+    screen with granular control over sources, scenes, and encoding. The
+    honest tradeoff is setup time: it's genuinely more involved to configure
+    than the other options on this list, and it doesn't automatically
+    detect when you launch a game the way GPU software does. Worth it if
+    you want real control or plan to stream; overkill if you just want to
+    save the occasional clip.
+  </p>
+
+  <h2>Want the easiest social sharing? Read this before installing Medal</h2>
+
+  <p>
+    Medal.tv is built specifically around saving and sharing short clips
+    quickly, and it's genuinely convenient for that. Two things worth
+    knowing before you install it, though. First, independent comparisons
+    consistently find it has a heavier performance impact than
+    hardware-based recorders, since it runs as a background application
+    rather than using GPU-level encoding. Second — and this is the one
+    worth actually reading the settings for — Medal's desktop capture mode
+    can record more than just your game, including other applications and
+    windows on the selected monitor, and its privacy policy covers
+    processing connected account data and using clips for things like
+    moderation and model training. None of that makes it unsafe to use
+    from the official source, but it does mean it's worth a few minutes in
+    the settings to disable desktop capture if you only want game clips,
+    and to check what auto-uploads before you turn it on.
+  </p>
+
+  <h2>The honest verdict</h2>
+
+  <ul>
+    <li><strong>Have an NVIDIA or AMD GPU:</strong> use its built-in Instant Replay/ReLive first. Free, minimal performance cost, already installed.</li>
+    <li><strong>No dedicated GPU:</strong> Xbox Game Bar as a no-setup fallback.</li>
+    <li><strong>Streaming or want full control:</strong> OBS Studio, worth the setup time.</li>
+    <li><strong>Want easy clip sharing above all else:</strong> Medal works well for that specifically — just review its capture and privacy settings first rather than leaving the defaults.</li>
+  </ul>
+
+  <p>
+    This one's built from official documentation, independent performance
+    comparisons, and each tool's own published privacy policy — genuine
+    hands-on GPU-recorder testing needs specific NVIDIA and AMD hardware we
+    don't have on hand to compare side by side, so treat the performance
+    figures here as reported by independent testers rather than something
+    we benchmarked ourselves.
+  </p>
+</Layout>
