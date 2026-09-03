@@ -1,5 +1,6 @@
 ---
 import type { Review } from '../data/reviews';
+import CategoryIcon from './CategoryIcon.astro';
 
 interface Props {
   review: Review;
@@ -7,7 +8,10 @@ interface Props {
 const { review } = Astro.props as Props;
 ---
 <a class="card" href={review.href} data-category={review.category}>
-  <span class="tag">{review.category}</span>
+  <span class="tag">
+    <CategoryIcon category={review.category} />
+    {review.category}
+  </span>
   <h3>{review.title}</h3>
   <p>{review.description}</p>
   <span class="read-more">Read it &rarr;</span>
@@ -32,14 +36,16 @@ const { review } = Astro.props as Props;
     border-color: var(--color-border-hover);
   }
   .tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     align-self: flex-start;
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     border-radius: 999px;
-    padding: 0.2rem 0.65rem;
+    padding: 0.3rem 0.7rem 0.3rem 0.55rem;
   }
   .card[data-category='Gaming'] .tag {
     color: var(--color-gaming);

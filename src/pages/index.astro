@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ReviewCard from '../components/ReviewCard.astro';
+import HeroIllustration from '../components/HeroIllustration.astro';
 import { reviews } from '../data/reviews';
 
 const latest = reviews.slice(0, 6);
@@ -12,17 +13,22 @@ const latest = reviews.slice(0, 6);
 >
   <section class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
-    <h1>Software and gaming, actually explained.</h1>
-    <p class="lede">
-      We dig into how software, subscriptions, and digital tools actually
-      work before we recommend them — hands-on testing wherever we can
-      genuinely get it, thorough research from official sources and
-      verified reports everywhere else. We tell you which is which, not
-      repackaged marketing copy.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-gaming" href="/reviews">Browse gaming reviews</a>
-      <a class="btn btn-software" href="/reviews">Browse software reviews</a>
+    <div class="hero-text">
+      <h1>Software and gaming, actually explained.</h1>
+      <p class="lede">
+        We dig into how software, subscriptions, and digital tools
+        actually work before we recommend them — hands-on testing
+        wherever we can genuinely get it, thorough research from
+        official sources and verified reports everywhere else. We tell
+        you which is which, not repackaged marketing copy.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-gaming" href="/reviews">Browse gaming reviews</a>
+        <a class="btn btn-software" href="/reviews">Browse software reviews</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <HeroIllustration />
     </div>
   </section>
 
@@ -40,10 +46,34 @@ const latest = reviews.slice(0, 6);
 <style>
   .hero {
     position: relative;
-    max-width: 40rem;
+    max-width: 68rem;
     margin: 0 auto 4rem;
-    text-align: center;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .hero-text {
+    max-width: 34rem;
+  }
+  .hero-art {
+    width: 100%;
+    max-width: 22rem;
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: 880px) {
+    .hero {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-cta {
+      justify-content: flex-start;
+    }
   }
   .hero-glow {
     position: absolute;
